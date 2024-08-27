@@ -9,10 +9,11 @@ public class Vehicles : MonoBehaviour
     [SerializeField] float maxSpeed;    
 
     [SerializeField] float brakingForce;
+    float currentBrakeForce;
    
     [SerializeField] float turnSensitivity;
     [SerializeField] float maxTurnAngle;
-
+    
     Rigidbody rb;
     [SerializeField] Vector3 centerOfMass;
 
@@ -57,30 +58,22 @@ public class Vehicles : MonoBehaviour
             {
                 float _steerAngle = steerInput * turnSensitivity * maxTurnAngle;
                 wheel.WheelCollider.steerAngle = Mathf.Lerp(wheel.WheelCollider.steerAngle, _steerAngle, 0.6f);
-            }           
+            }
+
+            wheel.WheelCollider.brakeTorque = currentBrakeForce;
         }
     }
 
-    private void Brake()
+    public virtual void Brake()
     {
-
         if (Input.GetKey(KeyCode.Space))
         {
-            foreach (WheelController wheel in wheelController)
-            {
-                if (wheel.handBreak)
-                {
-                    wheel.WheelCollider.brakeTorque = brakingForce;
-                    wheel.WheelCollider.motorTorque = 0;
-                }
-
-            }
+           currentBrakeForce = brakingForce;
         }
 
         else
         {
-            foreach (WheelController wheel in wheelController)
-                wheel.WheelCollider.brakeTorque = 0;
+            currentBrakeForce = 0;
         }
     }        
     
