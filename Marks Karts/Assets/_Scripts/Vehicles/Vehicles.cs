@@ -51,7 +51,7 @@ public class Vehicles : MonoBehaviour
             if (wheel.motorized)
             {
                 wheel.WheelCollider.motorTorque = moveInput * 50 * maxSpeed * Time.deltaTime;
-                Debug.Log(wheel.WheelCollider.motorTorque.ToString());
+                
             }
 
             if (wheel.steerable)
