@@ -13,8 +13,9 @@ public class CameraController : MonoBehaviour
 
     private void Start()
     {
-        vehicle = car.activeCar.transform;
+        //vehicle = car.activeCar.transform;
     }
+    
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -40,6 +41,9 @@ public class CameraController : MonoBehaviour
         Quaternion rotation = Quaternion.LookRotation(direction + rotOffset, Vector3.up);
 
         transform.rotation = Quaternion.Lerp(transform.rotation, rotation, rotSmoothness * Time.deltaTime);
+    }       
+    public void SetVehicleToCamera()
+    {
+        vehicle = car.activeCar.transform;
     }
-   
 }

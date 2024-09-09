@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
-using UnityEngine.SceneManagement;
+
 
 public class VehicleSelect : BaseMenu
 {
+    [SerializeField] CarSpawnManager spawnManager;
     public override void InitState(MenuController ctx)
     {
         base.InitState(ctx);
@@ -16,6 +14,7 @@ public class VehicleSelect : BaseMenu
     {
         base.EnterState();
         Time.timeScale = 1.0f;
+        
     }
 
     public override void ExitState()

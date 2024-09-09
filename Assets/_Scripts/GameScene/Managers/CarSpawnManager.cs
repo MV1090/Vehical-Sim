@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CarSpawnManager : MonoBehaviour
+public class CarSpawnManager : Singleton<CarSpawnManager>
 {
     [SerializeField] Vehicles muscle;
     [SerializeField] Vehicles sedan;
@@ -13,8 +13,10 @@ public class CarSpawnManager : MonoBehaviour
 
     Dictionary<string, Vehicles> VehicleDictionary = new Dictionary<string, Vehicles>();
 
-    private void Awake()
+    public override void Awake()
     {
+        base.Awake();
+
         VehicleDictionary.Add("Muscle", muscle);
         VehicleDictionary.Add("Sedan", sedan);
         VehicleDictionary.Add("Jeep", jeep);
@@ -39,6 +41,7 @@ public class CarSpawnManager : MonoBehaviour
         activeCar = VehicleDictionary[GameManager.Instance.chosenCar];
         activeCar.gameObject.SetActive(true);
         activeCar.transform.position = spawnPoint.position;
+        activeCar.transform.rotation = spawnPoint.rotation; 
     }
 
 

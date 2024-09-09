@@ -20,17 +20,24 @@ public class Vehicles : MonoBehaviour
     private float speed;
     public AnimationCurve steeringCurve;
 
+    private Quaternion originalRot;
+
+
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.centerOfMass = centerOfMass;
+        originalRot = Quaternion.identity;
     }
 
     private void Update()
     {       
         speed = rb.velocity.magnitude;
-
         GetInput();
+
+        if(Input.GetKeyDown(KeyCode.Space)) 
+            FlipCar();
     }
 
     private void FixedUpdate()
@@ -87,18 +94,11 @@ public class Vehicles : MonoBehaviour
         }
     }
 
-    //public virtual void Brake()
-    //{
-    //    if (Input.GetKey(KeyCode.Space))
-    //    {
-    //       currentBrakeForce = brakingForce;
-    //    }
-
-    //    else
-    //    {
-    //        currentBrakeForce = 0;
-    //    }
-    //}
+   void FlipCar()
+   {
+        Quaternion flipCar = new Quaternion(originalRot.x, transform.rotation.y, originalRot.z, transform.rotation.w);
+        transform.rotation = Quaternion.Lerp(transform.rotation, flipCar, 2f);        
+    }
        
 
 
