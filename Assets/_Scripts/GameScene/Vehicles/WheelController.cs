@@ -1,4 +1,6 @@
+using Unity.VisualScripting;
 using UnityEngine;
+//using UnityEngine.VehiclesModule;
 
 public class WheelController : MonoBehaviour
 {
@@ -13,10 +15,14 @@ public class WheelController : MonoBehaviour
     Vector3 position;
     Quaternion rotation;
 
+    public float wheelDampening;
+
     // Start is called before the first frame update
     private void Start()
     {
         WheelCollider = GetComponent<WheelCollider>();
+
+        wheelDampening = WheelCollider.wheelDampingRate;
     }
 
     // Update is called once per frame
@@ -25,7 +31,6 @@ public class WheelController : MonoBehaviour
         WheelCollider.GetWorldPose(out position, out rotation);
         wheelModel.transform.position = position;
         wheelModel.transform.rotation = rotation;       
-       
     }
 
     

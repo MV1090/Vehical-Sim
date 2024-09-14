@@ -26,9 +26,8 @@ public class LapComplete : MonoBehaviour
                 Time.timeScale = 0;
                 lapCounter = 0;
                 gameState.JumpToGameOver();
-            }               
-
-            Debug.Log(lapCounter.ToString());
+            }              
+                       
         }
     }
   

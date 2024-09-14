@@ -4592,6 +4592,7 @@ MonoBehaviour:
   steerable: 1
   motorized: 1
   handBreak: 0
+  wheelDampening: 0
 --- !u!146 &197349621
 WheelCollider:
   m_ObjectHideFlags: 0
@@ -7743,6 +7744,7 @@ MonoBehaviour:
   steerable: 0
   motorized: 1
   handBreak: 0
+  wheelDampening: 0
 --- !u!146 &313373520
 WheelCollider:
   m_ObjectHideFlags: 0
@@ -8466,6 +8468,7 @@ MonoBehaviour:
   steerable: 1
   motorized: 1
   handBreak: 0
+  wheelDampening: 0
 --- !u!1001 &366051690
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9552,6 +9555,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  wheelDampening: 125
 --- !u!43 &408293717
 Mesh:
   m_ObjectHideFlags: 0
@@ -11295,6 +11299,7 @@ MonoBehaviour:
   steerable: 0
   motorized: 1
   handBreak: 0
+  wheelDampening: 0
 --- !u!43 &463786594
 Mesh:
   m_ObjectHideFlags: 0
@@ -15417,6 +15422,7 @@ MonoBehaviour:
   steerable: 1
   motorized: 1
   handBreak: 0
+  wheelDampening: 0
 --- !u!146 &578776331
 WheelCollider:
   m_ObjectHideFlags: 0
@@ -20674,7 +20680,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5678493142902998330, guid: d9ab2401bf6839744952d1947386d8b3, type: 3}
       propertyPath: m_Name
-      value: Lawn_plane_15m_free_obs (10)
+      value: Grass
       objectReference: {fileID: 0}
     - target: {fileID: 5678493142902998330, guid: d9ab2401bf6839744952d1947386d8b3, type: 3}
       propertyPath: m_IsActive
@@ -22856,6 +22862,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 591362204}
     m_Modifications:
+    - target: {fileID: -7112750754122813761, guid: 87e0acbd6ddf7814097e377d5a5c716d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7979408779013957373, guid: 87e0acbd6ddf7814097e377d5a5c716d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8483781631078631208, guid: 87e0acbd6ddf7814097e377d5a5c716d, type: 3}
       propertyPath: m_Name
       value: Track_Fence_line_type_01_15m_free_obs
@@ -25997,6 +26011,7 @@ MonoBehaviour:
   steerable: 1
   motorized: 1
   handBreak: 0
+  wheelDampening: 0
 --- !u!1001 &945980567
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31360,6 +31375,7 @@ MonoBehaviour:
   steerable: 1
   motorized: 1
   handBreak: 0
+  wheelDampening: 0
 --- !u!4 &1149434350 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1078812705068660387, guid: dbff89217023b564995e795d23ed33cd, type: 3}
@@ -33690,6 +33706,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1475400520}
     m_Modifications:
+    - target: {fileID: 271704348955234665, guid: b51fe4491da6bf2428ec8f6ad3d099ff, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1344971724076054581, guid: b51fe4491da6bf2428ec8f6ad3d099ff, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2318605994352715531, guid: b51fe4491da6bf2428ec8f6ad3d099ff, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14.5
@@ -33734,6 +33758,18 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2.86
       objectReference: {fileID: 0}
+    - target: {fileID: 4735923404774752306, guid: b51fe4491da6bf2428ec8f6ad3d099ff, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6323124434260152762, guid: b51fe4491da6bf2428ec8f6ad3d099ff, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6417082504883582806, guid: b51fe4491da6bf2428ec8f6ad3d099ff, type: 3}
+      propertyPath: m_Convex
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6920679552842086349, guid: b51fe4491da6bf2428ec8f6ad3d099ff, type: 3}
       propertyPath: m_LocalScale.z
       value: 2.64
@@ -33741,6 +33777,10 @@ PrefabInstance:
     - target: {fileID: 6920679552842086349, guid: b51fe4491da6bf2428ec8f6ad3d099ff, type: 3}
       propertyPath: m_LocalPosition.z
       value: -244.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7578404195854305960, guid: b51fe4491da6bf2428ec8f6ad3d099ff, type: 3}
+      propertyPath: m_Convex
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7802438563876649323, guid: b51fe4491da6bf2428ec8f6ad3d099ff, type: 3}
       propertyPath: m_Name
@@ -34502,6 +34542,7 @@ MonoBehaviour:
   steerable: 0
   motorized: 1
   handBreak: 0
+  wheelDampening: 0
 --- !u!4 &1267764371 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1078812705068660387, guid: dbff89217023b564995e795d23ed33cd, type: 3}
@@ -34729,6 +34770,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  wheelDampening: 0
 --- !u!1001 &1292801151
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35880,6 +35922,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  wheelDampening: 150
 --- !u!1001 &1322675390
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -42086,6 +42129,7 @@ MonoBehaviour:
   steerable: 1
   motorized: 1
   handBreak: 0
+  wheelDampening: 0
 --- !u!43 &1607117451
 Mesh:
   m_ObjectHideFlags: 0
@@ -43042,6 +43086,7 @@ MonoBehaviour:
   steerable: 0
   motorized: 1
   handBreak: 0
+  wheelDampening: 0
 --- !u!146 &1625365089
 WheelCollider:
   m_ObjectHideFlags: 0
@@ -44870,6 +44915,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 1475400520}
     m_Modifications:
     - target: {fileID: 2237030754717559445, guid: d669db7eaffcd36409e491e18e49828c, type: 3}
+      propertyPath: m_WheelDampingRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2237030754717559445, guid: d669db7eaffcd36409e491e18e49828c, type: 3}
       propertyPath: m_SuspensionSpring.damper
       value: 4500
       objectReference: {fileID: 0}
@@ -44882,6 +44931,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4115439966326557783, guid: d669db7eaffcd36409e491e18e49828c, type: 3}
+      propertyPath: m_WheelDampingRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4115439966326557783, guid: d669db7eaffcd36409e491e18e49828c, type: 3}
       propertyPath: m_SuspensionSpring.damper
       value: 4500
       objectReference: {fileID: 0}
@@ -44892,6 +44945,10 @@ PrefabInstance:
     - target: {fileID: 4390511299414774436, guid: d669db7eaffcd36409e491e18e49828c, type: 3}
       propertyPath: handBreak
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5681274890086447214, guid: d669db7eaffcd36409e491e18e49828c, type: 3}
+      propertyPath: wheelDampening
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 5681274890086447214, guid: d669db7eaffcd36409e491e18e49828c, type: 3}
       propertyPath: steeringCurve.m_Curve.Array.size
@@ -44942,12 +44999,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7038312263360024434, guid: d669db7eaffcd36409e491e18e49828c, type: 3}
+      propertyPath: m_WheelDampingRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7038312263360024434, guid: d669db7eaffcd36409e491e18e49828c, type: 3}
       propertyPath: m_SuspensionSpring.damper
       value: 4500
       objectReference: {fileID: 0}
     - target: {fileID: 7038312263360024434, guid: d669db7eaffcd36409e491e18e49828c, type: 3}
       propertyPath: m_SuspensionSpring.spring
       value: 35000
+      objectReference: {fileID: 0}
+    - target: {fileID: 7713253581556437722, guid: d669db7eaffcd36409e491e18e49828c, type: 3}
+      propertyPath: m_WheelDampingRate
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7713253581556437722, guid: d669db7eaffcd36409e491e18e49828c, type: 3}
       propertyPath: m_SuspensionSpring.damper
@@ -47737,6 +47802,7 @@ MonoBehaviour:
   steerable: 0
   motorized: 1
   handBreak: 0
+  wheelDampening: 0
 --- !u!43 &1798893558
 Mesh:
   m_ObjectHideFlags: 0
@@ -51892,6 +51958,7 @@ MonoBehaviour:
   steerable: 0
   motorized: 1
   handBreak: 0
+  wheelDampening: 0
 --- !u!43 &1983428418
 Mesh:
   m_ObjectHideFlags: 0

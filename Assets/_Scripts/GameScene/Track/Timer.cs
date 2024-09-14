@@ -56,7 +56,7 @@ public class Timer : Singleton<Timer>
     }
 
     public void ResetLapTimer() 
-    {
+    {        
         if (lapMinutes <= GameManager.Instance.fastestLapMinutes)
         {
             if (lapSeconds + (60 * lapMinutes) <= GameManager.Instance.fastestLapSeconds + (60 * GameManager.Instance.fastestLapMinutes) || lapSeconds == GameManager.Instance.fastestLapSeconds && lapMilliseconds < GameManager.Instance.fastestLapMilliseconds)      
@@ -85,14 +85,13 @@ public class Timer : Singleton<Timer>
     public void ResetTimer()
     {
         ResetLapTimer();
-        UpdateLapTimer(0);
+        UpdateLapTimer(0.0f);
 
         for (int i = 0; i < lapTimeText.Length; i++)
         {
             lapTimeText[i].text = "L" + (i + 1) + " " + string.Format("{00:00}:{01:00}:{02:00}", lapMinutes, lapSeconds, lapMilliseconds);
         }
         currentTime = 0;
-        
     }
 
     private void OnDisable()

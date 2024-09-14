@@ -22,13 +22,16 @@ public class Vehicles : MonoBehaviour
 
     private Quaternion originalRot;
 
+    bool isOffTrack;
+    public float wheelDampening;
+    int wheelOffTrack = 0;
 
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
         rb.centerOfMass = centerOfMass;
-        originalRot = Quaternion.identity;
+        originalRot = transform.rotation;            
     }
 
     private void Update()
@@ -37,17 +40,17 @@ public class Vehicles : MonoBehaviour
         GetInput();
 
         if(Input.GetKeyDown(KeyCode.Space)) 
-            FlipCar();
+            FlipCar();                       
     }
 
     private void FixedUpdate()
     {
         Move();
-        //Brake();
+        OnTrackCheck();
     }
 
     private void GetInput()
-    {
+    {         
         moveInput = Input.GetAxis("Vertical");
         steerInput = Input.GetAxis("Horizontal");
 
@@ -71,8 +74,7 @@ public class Vehicles : MonoBehaviour
     }
 
     private void Move()
-    {
-        
+    {      
 
         foreach (WheelController wheel in wheelController)
         {
@@ -94,13 +96,43 @@ public class Vehicles : MonoBehaviour
         }
     }
 
-   void FlipCar()
+    void FlipCar()
    {
-        Quaternion flipCar = new Quaternion(originalRot.x, transform.rotation.y, originalRot.z, transform.rotation.w);
+        Quaternion flipCar = new Quaternion(transform.rotation.x - 180, transform.rotation.y, transform.rotation.z, transform.rotation.w);
         transform.rotation = Quaternion.Lerp(transform.rotation, flipCar, 2f);        
     }
        
+    void OnTrackCheck()
+    {
+        foreach (WheelController wheel in wheelController)
+        {
+            
+            if (wheel.WheelCollider.GetGroundHit(out WheelHit hit))
+            {
+                
+                if (hit.collider.gameObject.name == "Grass")
+                {                      
+                    isOffTrack = true;
+                    if (speed > 10)
+                    {
+                        wheel.WheelCollider.wheelDampingRate = wheelDampening;
+                    }
+                    else
+                        wheel.WheelCollider.wheelDampingRate = wheel.wheelDampening;
+                }
+                
+                else
+                {
+                    isOffTrack = false;
 
+                    wheel.WheelCollider.wheelDampingRate = wheel.wheelDampening;
 
+                }                  
+
+                Debug.Log(speed);
+            }               
+
+        }
+    }      
 
 }
