@@ -59,7 +59,7 @@ public class Vehicles : MonoBehaviour
         {
             if (moveInput < 0)
             {
-                brakeInput = Mathf.Abs(moveInput);
+                brakeInput = 1;
                 moveInput = 0;
             }
             else
@@ -97,9 +97,12 @@ public class Vehicles : MonoBehaviour
     }
 
     void FlipCar()
-   {
-        Quaternion flipCar = new Quaternion(transform.rotation.x - 180, transform.rotation.y, transform.rotation.z, transform.rotation.w);
-        transform.rotation = Quaternion.Lerp(transform.rotation, flipCar, 2f);        
+    {                   
+        if (transform.localRotation.eulerAngles.z > 90)
+        {            
+            Vector3 rotationToAdd = new Vector3(0, 0, 180);
+            transform.Rotate(rotationToAdd);
+        }
     }
        
     void OnTrackCheck()
@@ -127,9 +130,8 @@ public class Vehicles : MonoBehaviour
 
                     wheel.WheelCollider.wheelDampingRate = wheel.wheelDampening;
 
-                }                  
-
-                Debug.Log(speed);
+                }                 
+                               
             }               
 
         }
