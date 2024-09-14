@@ -6,8 +6,10 @@ public class LapComplete : MonoBehaviour
     [SerializeField] GameObject halfWayTrigger;
 
     [SerializeField] GameState gameState;
+    [SerializeField] int numberOfLaps;
 
     int lapCounter;
+    
 
     private void OnTriggerEnter(Collider other)
     {
@@ -21,10 +23,11 @@ public class LapComplete : MonoBehaviour
 
             lapCounter++;
 
-            if (lapCounter == 2)
+            if (lapCounter == numberOfLaps)
             {
                 Time.timeScale = 0;
                 lapCounter = 0;
+                GameManager.Instance.EndRace();
                 gameState.JumpToGameOver();
             }              
                        

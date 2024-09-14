@@ -11,16 +11,17 @@ public class GameManager : Singleton<GameManager>
     public int fastestLapMilliseconds = 99;
     public int fastestLapSeconds = 59;
     public int fastestLapMinutes = 59;
+
+    public bool beginRace;
     // Start is called before the first frame update
-    void Start()
+   public void BeginRace()
     {
-        
+        beginRace = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void EndRace()
     {
-        
+        beginRace = false;
     }
        
 }

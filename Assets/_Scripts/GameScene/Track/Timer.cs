@@ -18,11 +18,7 @@ public class Timer : Singleton<Timer>
     private float lapTime; 
     private int lapMilliseconds;
     private int lapSeconds;   
-    private int lapMinutes;
-
-    //public int fastestLapMilliseconds = 99;
-    //public int fastestLapSeconds = 59;
-    //public int fastestLapMinutes = 59;
+    private int lapMinutes;   
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +29,9 @@ public class Timer : Singleton<Timer>
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.Instance.beginRace == false)
+            { return; }
+        
         currentTime += Time.deltaTime;
         lapTime += Time.deltaTime;  
         UpdateTimer(currentTime);
@@ -96,6 +95,8 @@ public class Timer : Singleton<Timer>
 
     private void OnDisable()
     {
+        timerText.text = "Time " + string.Format("{00:00}:{01:00}:{02:00}", "00", "00", "00");        
+        //if(UnityEditor.EditorApplication.isPlaying)
         ResetTimer();
     }
 

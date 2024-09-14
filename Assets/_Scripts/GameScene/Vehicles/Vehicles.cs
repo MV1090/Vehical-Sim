@@ -19,19 +19,14 @@ public class Vehicles : MonoBehaviour
 
     private float speed;
     public AnimationCurve steeringCurve;
-
-    private Quaternion originalRot;
-
-    bool isOffTrack;
+        
     public float wheelDampening;
-    int wheelOffTrack = 0;
-
-
+    
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.centerOfMass = centerOfMass;
-        originalRot = transform.rotation;            
+        rb.centerOfMass = centerOfMass;       
+        
     }
 
     private void Update()
@@ -50,12 +45,21 @@ public class Vehicles : MonoBehaviour
     }
 
     private void GetInput()
-    {         
+    {
+        if (GameManager.Instance.beginRace == false)
+        {
+            brakeInput = 1;
+            moveInput = 0;
+            return;
+        }
+            
+
         moveInput = Input.GetAxis("Vertical");
         steerInput = Input.GetAxis("Horizontal");
 
         slipAngle = Vector3.Angle(transform.forward, rb.velocity);
-        if (slipAngle < 120)
+        
+        if (slipAngle < 100)
         {
             if (moveInput < 0)
             {
@@ -115,7 +119,7 @@ public class Vehicles : MonoBehaviour
                 
                 if (hit.collider.gameObject.name == "Grass")
                 {                      
-                    isOffTrack = true;
+                    //isOffTrack = true;
                     if (speed > 10)
                     {
                         wheel.WheelCollider.wheelDampingRate = wheelDampening;
@@ -126,7 +130,7 @@ public class Vehicles : MonoBehaviour
                 
                 else
                 {
-                    isOffTrack = false;
+                    //isOffTrack = false;
 
                     wheel.WheelCollider.wheelDampingRate = wheel.wheelDampening;
 
